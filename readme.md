@@ -33,6 +33,7 @@ Hosting/cloud service: TBD
 
 ### Session #1: Arquitectura, Configuración de IDE, DockerFile.
 
+Video: https://youtu.be/I7CdBYwgENY
 
 Creamos los distintos proyectos para seguir el arquetipo de [DDD (Domain-Driven Design)](https://es.wikipedia.org/wiki/Dise%C3%B1o_guiado_por_el_dominio). Para facilitar esta tarea [usamos este script](https://gist.github.com/bcariaga/60e2f368ebba86713c99e98d6263103c).
 
@@ -43,3 +44,5 @@ Movemos la clase `Startup.cs` al proyecto `Bootstrap`.
 Configuramos `ApplicationKey` apuntando al _assembly_ del proyecto Api, para que detecte los `Controllers`.
 
 Finalmente agregamos el `Dockerfile` solo con el resultado del publish de `Api.csproj, ya que ese es nuestro proyecto de _entrada_.
+
+
