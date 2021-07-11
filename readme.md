@@ -23,7 +23,7 @@ Hosting/cloud service: TBD
 ## Indice
 
 - [Session #1: Arquitectura, Configuración de IDE, DockerFile.](#Session-#1:-Arquitectura,-Configuración-de-IDE,-DockerFile.)
-- Session #2: TBD
+- [Session #2: Session #2: Comunicación de Api con Application usando Mediatr.](#Session-#2:-Comunicación-de-Api-con-Application-usando-Mediatr)
 
 
 
@@ -45,4 +45,16 @@ Configuramos `ApplicationKey` apuntando al _assembly_ del proyecto Api, para que
 
 Finalmente agregamos el `Dockerfile` solo con el resultado del publish de `Api.csproj, ya que ese es nuestro proyecto de _entrada_.
 
+----------
 
+### Session #2: Comunicación de Api con Application usando Mediatr
+
+Video: https://youtu.be/ofK-2vNYjKg
+
+Implementamos [Mediatr](https://github.com/jbogard/MediatR) para comunicar la capa Api con Aplicación.
+
+Con esta librería desacoplamos ambas capas, ademas a futuro podemos beneficiarnos de otras funcionalidades (behaviors o notifications).
+
+Asi quedaría la comunicación con la implementación:
+
+![uso de mediatr](https://github.com/bcariaga/gato-negro/blob/serie/SE01E02/docs/Mediatr/mediatr.png?raw=true)

@@ -1,9 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using MediatR;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
+using Application.Features.GetWeatherForecast.Queries;
+using Application.Features.GetWeatherForecast.Dtos;
 
 namespace Api.Controllers
 {
@@ -11,29 +13,17 @@ namespace Api.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly ILogger<WeatherForecastController> logger;
+        private readonly IMediator mediator;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IMediator mediator, ILogger<WeatherForecastController> logger)
         {
-            _logger = logger;
+            this.mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            this.logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
+        public async Task<IEnumerable<WeatherForecastDto>> Get() => 
+            await this.mediator.Send(new GetWeatherForecastQuery());
     }
 }

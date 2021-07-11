@@ -1,9 +1,11 @@
+using MediatR;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Application.Features.GetWeatherForecast.Queries;
 
 namespace Bootstrap
 {
@@ -25,6 +27,7 @@ namespace Bootstrap
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
+            services.AddMediatR(typeof(GetWeatherForecastQuery));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
