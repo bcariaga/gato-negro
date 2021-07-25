@@ -13,9 +13,10 @@
             ],
             "group": "build",
             "presentation": {
-                "reveal": "silent"
+                "reveal": "never",
             },
-            "problemMatcher": "$msCompile"
+            "problemMatcher": "$msCompile",
+            
         },
         {
             "label": "publish",
@@ -50,7 +51,7 @@
             },
             "presentation": {
                 "echo": true,
-                "reveal": "always",
+                "reveal": "never",
                 "focus": true,
                 "panel": "shared",
                 "showReuseMessage": true,

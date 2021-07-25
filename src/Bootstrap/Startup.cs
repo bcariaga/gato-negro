@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Application.Features.GetWeatherForecast.Queries;
+using Autofac;
+using Application.Features.GetProducts.Queries;
 
 namespace Bootstrap
 {
@@ -27,7 +28,12 @@ namespace Bootstrap
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
-            services.AddMediatR(typeof(GetWeatherForecastQuery));
+            services.AddMediatR(typeof(GetProductsQuery).Assembly);
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            _ = builder.RegisterAssemblyModules(this.GetType().Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +45,8 @@ namespace Bootstrap
             }
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => {
+            app.UseSwaggerUI(c =>
+            {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api v1");
                 c.RoutePrefix = string.Empty;
             });
