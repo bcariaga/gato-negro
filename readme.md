@@ -6,7 +6,7 @@ En este proyecto voy a crear un eCommerce y documentar el proceso a través de v
 
 Espero que pueda ser util.
 
-----------
+---
 
 ## Stack
 
@@ -18,18 +18,15 @@ Base de datos: TBD
 
 Hosting/cloud service: TBD
 
-----------
+---
 
 ## Indice
 
-- [Session #1: Arquitectura, Configuración de IDE, DockerFile.](#Session-#1:-Arquitectura,-Configuración-de-IDE,-DockerFile.)
-- [Session #2: Session #2: Comunicación de Api con Application usando Mediatr.](#Session-#2:-Comunicación-de-Api-con-Application-usando-Mediatr)
+- [Session #1: Arquitectura, Configuración de IDE, DockerFile.](#session-1-arquitectura-configuración-de-ide-dockerfile)
+- [Session #2: Comunicación de Api con Application usando Mediatr.](#session-2-comunicación-de-api-con-application-usando-mediatr)
+- [Session #3: Inyección de Dependencias para IoC con Autofac](#session-3-inyección-de-dependencias-para-ioc-con-autofac)
 
-
-
-
-----------
-
+---
 
 ### Session #1: Arquitectura, Configuración de IDE, DockerFile.
 
@@ -45,7 +42,7 @@ Configuramos `ApplicationKey` apuntando al _assembly_ del proyecto Api, para que
 
 Finalmente agregamos el `Dockerfile` solo con el resultado del publish de `Api.csproj, ya que ese es nuestro proyecto de _entrada_.
 
-----------
+---
 
 ### Session #2: Comunicación de Api con Application usando Mediatr
 
@@ -58,3 +55,16 @@ Con esta librería desacoplamos ambas capas, ademas a futuro podemos beneficiarn
 Asi quedaría la comunicación con la implementación:
 
 ![uso de mediatr](https://github.com/bcariaga/gato-negro/blob/serie/SE01E02/docs/Mediatr/mediatr.png?raw=true)
+
+---
+
+### Session #3: Inyección de Dependencias para IoC con Autofac
+
+Video: https://youtu.be/q0kUTI3yWt4
+
+Usamos [Autofac](https://autofac.org/) para resolver las dependencias de los distintos colaboradores dentro del proyecto.
+
+Aplicar DI (Dependency injection) es una manera de lograr la Inversión del Control (IoC).
+Como principal ventaja obtenemos un código **desacoplado**, fácilmente _testable_ y reutilizable.
+
+![DI](https://github.com/bcariaga/gato-negro/blob/serie/SE01E03/docs/IoC/IoC.png?raw=true)
