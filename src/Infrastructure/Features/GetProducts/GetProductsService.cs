@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Domain.Products.Queries.GetProducts;
 using Domain.Products.Queries.GetProducts.Services;
 
-namespace Infraestructure.Features.GetProducts
+namespace Infrastructure.Features.GetProducts
 {
     public class GetProductsService : IGetProductsService
     {

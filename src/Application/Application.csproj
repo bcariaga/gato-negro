@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj"/>
-    <ProjectReference Include="..\Infraestructure\Infraestructure.csproj"/>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj"/>
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>

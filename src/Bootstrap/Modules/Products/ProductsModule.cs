@@ -1,5 +1,5 @@
 using Autofac;
-using Infraestructure.Features.GetProducts;
+using Infrastructure.Features.GetProducts;
 
 namespace Bootstrap.Modules.Products
 {
