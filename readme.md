@@ -14,7 +14,7 @@ Por el momento en este repositorio vamos a llevar el control del código fuente 
 
 Vamos a construirlo con .net 5 (A.K.A. netcore hasta la version anterior) y algunas librerías que nos facilitaran algunas funciones. Ademas agregamos soporte para Docker para que al momento de poder funcional el mismo nos sea mas fácil.
 
-Base de datos: TBD
+Base de datos: Mongo DB
 
 Hosting/cloud service: TBD
 
@@ -25,6 +25,7 @@ Hosting/cloud service: TBD
 - [Session #1: Arquitectura, Configuración de IDE, DockerFile.](#session-1-arquitectura-configuración-de-ide-dockerfile)
 - [Session #2: Comunicación de Api con Application usando Mediatr.](#session-2-comunicación-de-api-con-application-usando-mediatr)
 - [Session #3: Inyección de Dependencias para IoC con Autofac](#session-3-inyección-de-dependencias-para-ioc-con-autofac)
+- [Session #4: Conexión con DB - MongoDB](#conexión-con-db-mongodb))
 
 ---
 
@@ -68,3 +69,17 @@ Aplicar DI (Dependency injection) es una manera de lograr la Inversión del Cont
 Como principal ventaja obtenemos un código **desacoplado**, fácilmente _testable_ y reutilizable.
 
 ![DI](https://github.com/bcariaga/gato-negro/blob/serie/SE01E03/docs/IoC/IoC.png?raw=true)
+
+---
+
+### Session #4: Conexión con DB - MongoDB
+
+Video: https://youtu.be/I8tn7ETECGo
+
+Usamos [MongoDb.Driver](https://www.nuget.org/packages/mongodb.driver) para conectarnos a un Mongo db y recuperar datos. Ademas de filtrarlos por nombre agregamos un paginado y orden de documentos.
+
+Como implementamos esta conexión:
+
+![MongoDb en Gato Negro](https://github.com/bcariaga/gato-negro/blob/serie/SE01E04/docs/Services-Repositories/Infrastructure.png?raw=true)
+
+**_Nota_** usamos esta config de `docker-compose` para levantar el servicio de MongoDb: https://github.com/bcariaga/mongodb-docker-seed

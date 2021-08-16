@@ -1,13 +1,14 @@
 
 using MediatR;
 using System.Collections.Generic;
+using Application.SeedWork.Queries;
 
 namespace Application.Features.GetProducts.Queries
 {
     /// <summary>
     /// Find products by filters
     /// </summary>
-    public class GetProductsQuery : IRequest<IEnumerable<GetProductsQuery.Product>>
+    public class GetProductsQuery : PaginatedAndSorteredQuery, IRequest<IEnumerable<GetProductsQuery.Product>>
     {
         public string Term { get; init; }
 

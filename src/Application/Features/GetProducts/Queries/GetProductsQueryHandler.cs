@@ -19,7 +19,10 @@ namespace Application.Features.GetProducts.Queries
         public async Task<IEnumerable<GetProductsQuery.Product>> Handle(
             GetProductsQuery request,
             CancellationToken cancellationToken) =>
-            (await getProductsService.GetByAsync(request.Term))
+            (await getProductsService.GetByAsync(new IGetProductsService.SearchParams(
+                    request.Term,
+                    new(request.PageNumber, request.PageSize),
+                    new(request.Asc, request.OrderBy))))
                 .Select(p =>
                     new GetProductsQuery.Product
                     {
