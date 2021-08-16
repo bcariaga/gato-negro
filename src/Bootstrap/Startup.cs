@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Autofac;
 using Application.Features.GetProducts.Queries;
+using Bootstrap.Modules.Infrastructure;
+using Bootstrap.Modules.Products;
 
 namespace Bootstrap
 {
@@ -33,7 +35,9 @@ namespace Bootstrap
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            _ = builder.RegisterAssemblyModules(this.GetType().Assembly);
+            _ = builder.Register(ctx => Configuration);
+            _ = builder.RegisterModule(new InfrastructureModule(Configuration));
+            _ = builder.RegisterModule(new ProductsModule(Configuration));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
