@@ -19,6 +19,59 @@
             
         },
         {
+            "label": "clean test results",
+            "command" :["rm -rf \"${workspaceFolder}/test/UnitTests/TestResults\""],
+            "group": "test",
+            "type": "shell",
+            "presentation": {
+                "reveal": "never",
+            }
+        },
+        {
+            "label": "collect coverage",
+            "command": "dotnet",
+            "dependsOn":["clean test results"],
+            "type": "shell",
+            "args": [
+                "test",
+                "${workspaceFolder}/test/UnitTests/UnitTests.csproj",
+                "/p:CollectCoverage=true",
+                "/p:CoverletOutputFormat=cobertura",
+                "--collect:\"XPlat Code Coverage\""
+            ],
+            "group": "test",
+            "presentation": {
+                "reveal": "never",
+            },
+            "problemMatcher": "$msCompile",
+        },
+        {
+            "label": "generate coverage report",
+            "command": "reportgenerator",
+            "type": "shell",
+            "args": [
+                "-reports:${workspaceFolder}/test/UnitTests/TestResults/**/coverage.cobertura.xml",
+                "-targetdir:${workspaceFolder}/test/UnitTests/TestResults/report",
+            ],
+            "group": "test",
+            "presentation": {
+                "reveal": "never",
+            }
+        },
+        {
+            "label": "show coverage report",
+            "command": "open",
+            "type": "shell",
+            "dependsOn": ["generate coverage report"],
+            "args": [
+                "${workspaceFolder}/test/UnitTests/TestResults/report/index.htm",
+            ],
+            "group": "test",
+            "presentation": {
+                "reveal": "never",
+            }
+        },
+        {
             "label": "publish",
             "command": "dotnet",
             "type": "process",
