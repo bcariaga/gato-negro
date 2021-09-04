@@ -25,7 +25,9 @@ Hosting/cloud service: TBD
 - [Session #1: Arquitectura, Configuración de IDE, DockerFile.](#session-1-arquitectura-configuración-de-ide-dockerfile)
 - [Session #2: Comunicación de Api con Application usando Mediatr.](#session-2-comunicación-de-api-con-application-usando-mediatr)
 - [Session #3: Inyección de Dependencias para IoC con Autofac](#session-3-inyección-de-dependencias-para-ioc-con-autofac)
-- [Session #4: Conexión con DB - MongoDB](#conexión-con-db-mongodb))
+- [Session #4: Conexión con DB - MongoDB](#conexión-con-db-mongodb)
+- [Session #5: Unit Tests - XUnit Moq Bogus](#session-#5-unit-tests-xunit-moq-bogus)
+- [Session #5 Bonus Coverage y OpenCover](#session-#5-bonus-coverage-y-opencover)
 
 ---
 
@@ -83,3 +85,15 @@ Como implementamos esta conexión:
 ![MongoDb en Gato Negro](https://github.com/bcariaga/gato-negro/blob/serie/SE01E04/docs/Services-Repositories/Infrastructure.png?raw=true)
 
 **_Nota_** usamos esta config de `docker-compose` para levantar el servicio de MongoDb: https://github.com/bcariaga/mongodb-docker-seed
+
+### Session #5: Unit Tests - XUnit Moq Bogus
+
+Video: https://youtu.be/7myjSHLe8rE
+
+Usamos XUnit para crear pruebas de unidad (Unit Test) y mos apoyamos en [Moq](https://github.com/moq/moq4) para crear objetos que nos permitan "simular" el comportamiento de nuestros _colaboradores_ a traves de su interfaz.
+
+Ademas usamos [Bogus](https://github.com/bchavez/Bogus) para crear datos _fake_.
+
+### Session #5 Bonus Coverage y OpenCover
+
+Con [OpenCover](https://github.com/OpenCover/opencover) generamos un reporte html para analizar el **Code Coverge** de nuestro proyecto.
